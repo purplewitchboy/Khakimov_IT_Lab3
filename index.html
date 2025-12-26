@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web 3.0 и NFT: Трансформация образования через блокчейн-технологии | Хакимов Р.А.</title>
+  <meta name="author" content="Хакимов Руслан Анварович, МГТУ «Станкин», ИДМ-25-01">
+  <meta name="description" content="Мультимедийный лонгрид по дисциплине «Интернет-технологии»: Web 3.0, NFT, блокчейн в образовании, перспективы и применение.">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #6d28d9;
+      --secondary: #4b5563;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #5b21b6, #3730a3);
+      color: #fff;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+      font-weight: 700;
+    }
+
+    header .subtitle {
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 1.2rem;
+      opacity: 0.92;
+    }
+
+    header .author {
+      font-size: 1.05rem;
+      opacity: 0.88;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 0 3rem;
+    }
+
+    section {
+      margin-bottom: 2.8rem;
+      scroll-margin-top: 80px;
+    }
+
+    .toc {
+      width: 260px;
+      position: sticky;
+      top: 2rem;
+      padding: 1.4rem;
+      background: var(--card);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      font-size: 0.95rem;
+    }
+
+    .toc h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .toc ul { list-style: none; }
+    .toc a {
+      display: block;
+      padding: 0.35rem 0;
+      text-decoration: none;
+      color: var(--text-light);
+      border-left: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .toc a.active,
+    .toc a:hover {
+      color: var(--primary);
+      border-left-color: var(--primary);
+      padding-left: 0.6rem;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 1.1rem;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 1.3rem 0 0.7rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+      text-indent: 1.25rem;
+      font-size: 1.02rem;
+    }
+
+    ul, ol {
+      margin: 0.8rem 0 1.2rem 2rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+      font-size: 1.02rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      border-bottom: 1px dashed var(--primary);
+    }
+
+    .infographic,
+    .chart-wrapper,
+    .quote-block,
+    .case-study {
+      background: var(--bg-alt);
+      border-radius: 8px;
+      padding: 1.4rem;
+      margin: 1.8rem 0;
+    }
+
+    .case-study {
+      border-left: 4px solid var(--primary);
+    }
+
+        table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .conclusion {
+      background: #f5f3ff;
+      border-left: 3px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+    }
+
+    .references ol { padding-left: 1.8rem; }
+    .references li { margin-bottom: 0.6rem; }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.92rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      margin-top: 1.5rem;
+    }
+
+    .mobile-toc-btn {
+      display: none;
+      margin: 1.2rem 0;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.65rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nft-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 1.5rem auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 1023px) {
+      .container { flex-direction: column; }
+      .toc { display: none; width: 100%; }
+      .toc.active { display: block; }
+      .mobile-toc-btn { display: inline-block; }
+      body { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Web 3.0 и NFT: Трансформация образования через блокчейн-технологии</h1>
+  <p class="subtitle">«Интернет-технологии»</p>
+  <p class="author">
+    Хакимов Р.А., студент группы ИДМ-25-01<br>
+    Московский государственный технологический университет «СТАНКИН»
+  </p>
+</header>
+
+<div class="container">
+  <button class="mobile-toc-btn" onclick="toggleTOC()">☰ Оглавление</button>
+
+  <aside class="toc" id="toc">
+    <h3>Оглавление</h3>
+    <ul>
+      <li><a href="#intro" class="toc-link">1. Введение: цифровая трансформация и Web 3.0</a></li>
+      <li><a href="#web3-nft" class="toc-link">2. Web 3.0 и NFT: основы токенизации</a></li>
+      <li><a href="#education" class="toc-link">3. Применение в образовании</a></li>
+      <li><a href="#cases" class="toc-link">4. Практические кейсы и исследования</a></li>
+      <li><a href="#conclusion" class="toc-link">5. Заключение и перспективы</a></li>
+      <li><a href="#references" class="toc-link">6. Источники и исследования</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <section id="intro">
+      <h2>1. Введение: цифровая трансформация и Web 3.0</h2>
+      <p>Современный этап развития информационных технологий характеризуется их глубокой интеграцией во все сферы человеческой деятельности. Технологические достижения, такие как облачные вычисления, искусственный интеллект (ИИ), большие данные (Big Data) и блокчейн, изменили подходы к бизнесу, управлению и повседневной жизни.</p>
+      
+      <div class="infographic">
+        <h3>Технологические драйверы цифровой экономики</h3>
+        <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .tech { font: bold 14px serif; fill: #1e293b; }
+            .desc { font: 12px serif; fill: #4b5563; }
+            .icon { r: 10; }
+          </style>
+          <circle cx="100" cy="80" class="icon" fill="#8b5cf6" />
+          <text x="100" y="35" text-anchor="middle" class="tech">ИИ и ML</text>
+          <text x="100" y="120" text-anchor="middle" class="desc">
+            <tspan x="100" dy="0">Машинное обучение</tspan>
+            <tspan x="100" dy="16">и анализ данных</tspan>
+          </text>
+          
+          <circle cx="250" cy="80" class="icon" fill="#3b82f6" />
+          <text x="250" y="35" text-anchor="middle" class="tech">Облако</text>
+          <text x="250" y="120" text-anchor="middle" class="desc">
+            <tspan x="250" dy="0">Распределённые</tspan>
+            <tspan x="250" dy="16">вычисления</tspan>
+          </text>
+          
+          <circle cx="400" cy="80" class="icon" fill="#10b981" />
+          <text x="400" y="35" text-anchor="middle" class="tech">Блокчейн</text>
+          <text x="400" y="120" text-anchor="middle" class="desc">
+            <tspan x="400" dy="0">Децентрализованные</tspan>
+            <tspan x="400" dy="16">реестры</tspan>
+          </text>
+          
+          <circle cx="550" cy="80" class="icon" fill="#f59e0b" />
+          <text x="550" y="35" text-anchor="middle" class="tech">IoT</text>
+          <text x="550" y="120" text-anchor="middle" class="desc">
+            <tspan x="550" dy="0">Интернет вещей</tspan>
+            <tspan x="550" dy="16">и умные города</tspan>
+          </text>
+          
+          <circle cx="700" cy="80" class="icon" fill="#ef4444" />
+          <text x="700" y="35" text-anchor="middle" class="tech">5G</text>
+          <text x="700" y="120" text-anchor="middle" class="desc">
+            <tspan x="700" dy="0">Сети нового</tspan>
+            <tspan x="700" dy="16">поколения</tspan>
+          </text>
+        </svg>
+      </div>
+
+      <p><strong>Цифровая экономика</strong> – это экономика, основанная на использовании цифровых технологий для производства, обмена и потребления товаров и услуг. Основные компоненты включают платформенную экономику, электронную коммерцию, цифровое производство и цифровые финансовые сервисы.</p>
+      
+      <p>Концепция <strong>Индустрия 4.0</strong> предполагает интеграцию IoT, киберфизических систем, облачных вычислений и искусственного интеллекта для создания «умных» производств. В рамках этой парадигмы формируется <span class="highlight">Web 3.0</span> – следующая эволюция интернета, где особое внимание уделяется децентрализации, приватности и взаимодействию человека с цифровыми системами.</p>
+    </section>
+
+    <section id="web3-nft">
+      <h2>2. Web 3.0 и NFT: основы токенизации</h2>
+      <p><strong>Web 3.0</strong> представляет собой новую эру интернета, характеризующуюся децентрализацией, приватностью и взаимодействием на основе данных, управляемых пользователем. Ключевые особенности:</p>
+      <ul>
+        <li>Децентрализация данных через распределённые сети</li>
+        <li>Контроль пользователей над своими данными</li>
+        <li>Использование интеллектуальных систем и семантических технологий</li>
+        <li>Повышенная безопасность через криптографические методы</li>
+      </ul>
+
+      <h3>Токенизация и NFT: суть технологии</h3>
+      <p><strong>Токенизация</strong> – процесс преобразования прав на актив в цифровой токен, записываемый в блокчейн. <strong>NFT (невзаимозаменяемый токен)</strong> – уникальный цифровой сертификат, удостоверяющий право собственности на конкретный актив.</p>
+
+      <div class="infographic">
+        <h3>Характеристики NFT</h3>
+        <table>
+          <thead>
+            <tr><th>Свойство</th><th>Описание</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Уникальность</td><td>Каждый токен имеет уникальные свойства и метаданные</td></tr>
+            <tr><td>Доказуемая собственность</td><td>Право владения легко проверяется через блокчейн</td></tr>
+            <tr><td>Неделимость</td><td>NFT нельзя разделить на части (в отличие от криптовалют)</td></tr>
+            <tr><td>Совместимость</td><td>Торговля на различных маркетплейсах и платформах</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ethereum как основа для NFT</h3>
+      <p>Ethereum – крупнейшая блокчейн-платформа для создания NFT через стандарты:</p>
+      <ul>
+        <li><strong>ERC-721</strong>: первый стандарт для NFT, обеспечивающий уникальность</li>
+        <li><strong>ERC-1155</strong>: поддерживает как NFT, так и взаимозаменяемые токены</li>
+      </ul>
+
+      <div class="chart-wrapper">
+        <h3>Распределение NFT-транзакций по блокчейнам (2024)</h3>
+        <canvas id="nftChart"></canvas>
+        <p><small>Источник: Forbes NFT Report 2024</small></p>
+      </div>
+
+      <script>
+        const nftCtx = document.getElementById('nftChart').getContext('2d');
+        new Chart(nftCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Ethereum', 'Solana', 'Flow', 'Tezos', 'Другие'],
+            datasets: [{
+              data: [78, 12, 5, 3, 2],
+              backgroundColor: ['#7c3aed', '#3b82f6', '#10b981', '#f59e0b', '#94a3b8']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+      </script>
+    </section>
+
+    <section id="education">
+      <h2>3. Применение Web 3.0 и NFT в образовании</h2>
+      <p>Сфера образования переживает значительные изменения благодаря внедрению информационных технологий. Web 3.0 предлагает новые возможности для создания децентрализованных, персонализированных и безопасных образовательных систем.</p>
+
+      <h3>Основные преимущества</h3>
+      <ol>
+        <li><strong>Децентрализация образовательных ресурсов</strong>: доступ к материалам без зависимости от централизованных платформ</li>
+        <li><strong>Персонализация обучения</strong>: использование ИИ для адаптации учебного процесса</li>
+        <li><strong>Прозрачность и безопасность данных</strong>: блокчейн для хранения сертификатов и дипломов</li>
+        <li><strong>Стимулирование обучения</strong>: NFT-награды за достижения учащихся</li>
+        <li><strong>Глобальная доступность</strong>: онлайн-образование через децентрализованные платформы</li>
+      </ol>
+
+      <div class="quote-block">
+        <p style="font-style: italic; margin: 0;">
+          «NFT-сертификаты и системы токенизированного поощрения создают новые механизмы мотивации учащихся и признания образовательных достижений, формируя основу для децентрализованной цифровой экономики знаний.»
+        </p>
+        <p style="text-align: right; margin-top: 0.5rem; font-weight: 600;">
+          — Анализ eLearning Industry, 2024
+        </p>
+      </div>
+
+      <h3>Текущее внедрение технологий</h3>
+      <ul>
+        <li><strong>Цифровые дипломы на блокчейне</strong>: Blockcerts, OpenCerts</li>
+        <li><strong>Децентрализованные образовательные платформы (DeEd)</strong>: Odyssey, BitDegree</li>
+        <li><strong>Токенизация образовательного процесса</strong>: NFT за курсы и достижения</li>
+        <li><strong>Виртуальные классы в метавселенных</strong>: Decentraland, VR-лекции</li>
+      </ul>
+
+      <div class="infographic">
+        <h3>Архитектура образовательной экосистемы Web 3.0</h3>
+        <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .layer { font: bold 13px serif; fill: white; text-anchor: middle; }
+            .box { rx: 6; ry: 6; }
+          </style>
+          <rect x="100" y="15" width="400" height="35" fill="#5b21b6" class="box"/>
+          <text x="300" y="39" class="layer">Блокчейн-инфраструктура (Ethereum, Flow)</text>
+          
+          <rect x="150" y="70" width="300" height="35" fill="#7c3aed" class="box"/>
+          <text x="300" y="94" class="layer">Смарт-контракты для образования</text>
+          
+          <rect x="50" y="125" width="500" height="35" fill="#8b5cf6" class="box"/>
+          <text x="300" y="149" class="layer">DeEd-платформы, NFT-маркетплейсы</text>
+          
+          <rect x="20" y="180" width="560" height="35" fill="#a78bfa" class="box"/>
+          <text x="300" y="204" class="layer">Учащиеся, преподаватели, работодатели (DAO)</text>
+          
+          <line x1="300" y1="50" x2="300" y2="70" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrowEdu)" />
+          <line x1="300" y1="105" x2="300" y2="125" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrowEdu)" />
+          <line x1="300" y1="160" x2="300" y2="180" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrowEdu)" />
+          
+          <defs>
+            <marker id="arrowEdu" markerWidth="6" markerHeight="6" refX="5" refY="1.5" orient="auto">
+              <path d="M0,0 L0,3 L5,1.5 z" fill="#94a3b8" />
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <section id="cases">
+      <h2>4. Практические кейсы и исследования</h2>
+      
+      <div class="case-study">
+        <h3>Кейс 1: MIT Digital Diplomas</h3>
+        <p><strong>Исследование:</strong> MIT Media Lab разработал систему цифровых дипломов на блокчейне, позволяющую выпускникам хранить и делиться верифицируемыми дипломами.</p>
+        <p><strong>Технологии:</strong> Блокчейн Bitcoin (через Blockcerts), цифровые подписи.</p>
+        <p><strong>Результат:</strong> Устранение подделок, упрощение проверки для работодателей, сокращение административных издержек.</p>
+        <p><a href="https://www.media.mit.edu/posts/blockchain-diplomas/" target="_blank">Подробнее об исследовании MIT →</a></p>
+      </div>
+
+      <div class="case-study">
+        <h3>Кейс 2: University of Nicosia (Кипр)</h3>
+        <p><strong>Практика:</strong> Первый университет, внедривший блокчейн для учёта академических кредитов и выдачи NFT-сертификатов.</p>
+        <p><strong>Технологии:</strong> Ethereum, смарт-контракты для автоматизации выдачи сертификатов.</p>
+        <p><strong>Результат:</strong> Студенты получают NFT за каждый пройденный курс, которые формируют цифровое портфолио.</p>
+      </div>
+
+      <div class="case-study">
+        <h3>Кейс 3: Sony Global Education</h3>
+        <p><strong>Исследование:</strong> Разработка блокчейн-системы для глобального учёта академических достижений.</p>
+        <p><strong>Технологии:</strong> Собственный блокчейн, межсетевое взаимодействие.</p>
+        <p><strong>Результат:</strong> Создание единого безопасного реестра образовательных достижений студентов по всему миру.</p>
+        <p><a href="https://www.sonyged.com/" target="_blank">Экспертная статья о проекте →</a></p>
+      </div>
+
+      <h3>Исследование: NFT в образовании (eLearning Industry, 2024)</h3>
+      <p>Согласно исследованию, внедрение NFT в образование даёт следующие эффекты:</p>
+      <table>
+        <thead>
+          <tr><th>Область</th><th>Эффективность</th><th>Примеры платформ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Сертификация</td><td>Снижение подделок на 99%</td><td>OpenCerts, Blockcerts</td></tr>
+          <tr><td>Мотивация</td><td>Увеличение вовлечённости на 40%</td><td>BitDegree, Odyssey</td></tr>
+          <tr><td>Монетизация</td><td>Новые источники доходов для преподавателей</td><td>Rarible (образовательные NFT)</td></tr>
+          <tr><td>Доступность</td><td>Снижение стоимости проверки документов</td><td>Appii, VerifyEd</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="conclusion">
+      <h2>5. Заключение и перспективы</h2>
+      <div class="conclusion">
+        <p>Web 3.0 и технология NFT формируют основу для трансформации образования, делая его более доступным, безопасным и ориентированным на индивидуальные потребности учащихся в цифровую эпоху.</p>
+        
+        <p><strong>Ключевые выводы:</strong></p>
+        <ol>
+          <li>Web 3.0 представляет новую парадигму интернета с децентрализацией и контролем пользователей над данными</li>
+          <li>NFT и токенизация открывают новые возможности для цифровой экономики через уникальные активы</li>
+          <li>Блокчейн обеспечивает защиту образовательных документов от подделки и упрощает верификацию</li>
+          <li>Интеграция ИИ с децентрализованными платформами позволяет создавать персонализированные образовательные траектории</li>
+          <li>Метавселенные и VR/AR создают иммерсивные образовательные среды для глубокого усвоения знаний</li>
+        </ol>
+        
+        <p><strong>Перспективы развития:</strong> расширение использования NFT в новых областях образования, развитие масштабируемых решений Layer 2 для снижения комиссий, создание глобальных децентрализованных образовательных экосистем.</p>
+      </div>
+    </section>
+
+    <section id="references" class="references">
+      <h2>6. Источники и исследования</h2>
+      <ol>
+        <li>NFT: What Are Non-Fungible Tokens? // Forbes. 2024. URL: <a href="https://www.forbes.com/sites/forbesfinancecouncil/2021/11/01/nft-what-are-non-fungible-tokens/" target="_blank">https://www.forbes.com/sites/forbesfinancecouncil/2021/11/01/nft-what-are-non-fungible-tokens/</a></li>
+        <li>Бутерин В. «Ethereum: Белая книга. Платформа для умных контрактов и децентрализованных приложений нового поколения». URL: <a href="https://ethereum.org/ru/whitepaper/" target="_blank">https://ethereum.org/ru/whitepaper/</a></li>
+        <li>The State of NFT in Education // eLearning Industry. 2024. URL: <a href="https://elearningindustry.com/the-state-of-nft-in-education" target="_blank">https://elearningindustry.com/the-state-of-nft-in-education</a></li>
+        <li>MIT Digital Diplomas // MIT Media Lab. URL: <a href="https://www.media.mit.edu/posts/blockchain-diplomas/" target="_blank">https://www.media.mit.edu/posts/blockchain-diplomas/</a></li>
+        <li>Google Expeditions: VR and AR in Education // Google for Education. URL: <a href="https://edu.google.com/products/vr-ar/expeditions/" target="_blank">https://edu.google.com/products/vr-ar/expeditions/</a></li>
+        <li>Sony Global Education Blockchain Project // Sony. URL: <a href="https://www.sonyged.com/" target="_blank">https://www.sonyged.com/</a></li>
+        <li>University of Nicosia Blockchain Initiative // UNIC. URL: <a href="https://www.unic.ac.cy/blockchain/" target="_blank">https://www.unic.ac.cy/blockchain/</a></li>
+        <li>Децентрализованные образовательные платформы: BitDegree, Odyssey // DeFi Education. 2024. URL: <a href="https://www.bitdegree.org/" target="_blank">https://www.bitdegree.org/</a></li>
+        <li>Шваб К. «Четвёртая промышленная революция». М.: Альпина Паблишер, 2016.</li>
+        <li>Тапскотт Д., Тапскотт А. «Революция блокчейн». СПб.: Питер, 2017.</li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>Лабораторная работа №3 по дисциплине «Интернет-технологии»<br>
+  Хакимов Р.А., группа ИДМ-25-01, МГТУ «СТАНКИН», 2025 г.</p>
+</footer>
+
+<script>
+  function toggleTOC() {
+    document.getElementById('toc').classList.toggle('active');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.toc-link');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const activeLink = Array.from(links).find(l => l.getAttribute('href') === `#${entry.target.id}`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-25% 0px -75% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  });
+</script>
+</body>
+</html>
